@@ -1,0 +1,4 @@
+A DPU for classifying raw accelerometer and wi-fi data points into mobility modes.
+
+The resulting modes will be one of: error, still, walk, run, bike, drive.
+ 
