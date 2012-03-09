@@ -100,4 +100,65 @@ public class SensorDataPoint {
 	public List<Sample> getAccelerometerSamples() {
 		return accelerometerSamples;
 	}
+
+	@Override
+	public String toString() {
+		return "SensorDataPoint [id=" + id + ", speed=" + speed + ", timezone="
+				+ timezone + ", wifiScan=" + wifiScan
+				+ ", accelerometerSamples=" + accelerometerSamples + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime
+				* result
+				+ ((accelerometerSamples == null) ? 0 : accelerometerSamples
+						.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((speed == null) ? 0 : speed.hashCode());
+		result = prime * result
+				+ ((timezone == null) ? 0 : timezone.hashCode());
+		result = prime * result
+				+ ((wifiScan == null) ? 0 : wifiScan.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SensorDataPoint other = (SensorDataPoint) obj;
+		if (accelerometerSamples == null) {
+			if (other.accelerometerSamples != null)
+				return false;
+		} else if (!accelerometerSamples.equals(other.accelerometerSamples))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (speed == null) {
+			if (other.speed != null)
+				return false;
+		} else if (!speed.equals(other.speed))
+			return false;
+		if (timezone == null) {
+			if (other.timezone != null)
+				return false;
+		} else if (!timezone.equals(other.timezone))
+			return false;
+		if (wifiScan == null) {
+			if (other.wifiScan != null)
+				return false;
+		} else if (!wifiScan.equals(other.wifiScan))
+			return false;
+		return true;
+	}
 }

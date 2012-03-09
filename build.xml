@@ -55,7 +55,6 @@
   	<junit printsummary="yes" haltonfailure="yes">
   	  <classpath refid="classpath.test"/>
   	  <formatter type="plain" usefile="false" />
-
   	  <test name="org.openmhealth.dpu.mobilityclassifier.test.MobilityClassifierTestSuite"/>
   	</junit>
   </target>

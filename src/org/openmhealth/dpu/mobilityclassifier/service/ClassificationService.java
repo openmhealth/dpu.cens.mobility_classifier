@@ -54,6 +54,9 @@ public class ClassificationService {
 		if(sensorDataPoints == null) {
 			throw new IllegalArgumentException("sensorDataPoints is required");
 		}
+		if(sensorDataPoints.contains(null)) {
+			throw new IllegalArgumentException("sensorDataPoints contains null");
+		}
 		
 		List<ClassifiedPoint> classifiedPoints = new ArrayList<ClassifiedPoint>();
 
