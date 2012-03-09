@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <project name="omh-dpu-cens-mobility_classifier" basedir="." default="dist-all">
-  <property name="version"  value="snapshot"/>
+  <property name="version"  value="1.0"/>
   <property name="library" location="lib"/>
   <property name="src" location="src"/>
   <property name="test" location="test"/>
@@ -21,6 +21,7 @@
     <include name="**/joda-time-2.1.jar"/>
     <include name="**/mobility-classifier-1.2.9.jar"/>
     <include name="**/junit-4.10.jar"/>
+    <include name="**/json.org-2011-11-03.jar" />
   </fileset>
   
   <path id="compile-classpath">
@@ -69,19 +70,22 @@
     </javadoc>
   </target>
 	
-  <target name="dist-jar" depends="javac" description="Compiles Java files and creates an executable jar file with the dependencies embedded.">
+  <target name="dist-jar" depends="javac" description="Compiles Java files and a deployable JAR.">
     <mkdir dir="${dist}"/>
 	<jar destfile="${dist}/${ant.project.name}-${version}.jar">
-	  <fileset dir="${build}/classes"/>
+	  <fileset dir="${build}/classes">
+	    <exclude name="**/test/*Test*" />
+	    <exclude name="**/example/*Example*" />
+	  </fileset>
 	</jar>
   </target>
 	
-  <target name="dist-docs" depends="javadoc" description="Compiles Javadocs and creates gzipped tarball.">
+  <target name="dist-docs" depends="javadoc" description="Compiles Javadocs and creates a gzipped tarball and a zip file.">
     <mkdir dir="${dist}"/>
     <tar basedir="${build}/docs" destfile="${dist}/${ant.project.name}-docs-${version}.tar.gz" longfile="gnu" compression="gzip"/>
     <zip basedir="${build}/docs" destfile="${dist}/${ant.project.name}-docs-${version}.zip" encoding="UTF-8" compress="true"/>
   </target>
 
-  <target name="dist-all" depends="dist-jar,dist-docs" description="Creates full distribution (WAR and docs)."/>
+  <target name="dist-all" depends="dist-jar,dist-docs" description="Creates full distribution (JAR, WAR and docs)."/>
 
  </project>

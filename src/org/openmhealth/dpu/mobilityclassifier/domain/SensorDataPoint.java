@@ -24,7 +24,7 @@ import edu.ucla.cens.mobilityclassifier.Sample;
 import edu.ucla.cens.mobilityclassifier.WifiScan;
 
 /**
- * Immutable wrapper for sensor data.
+ * An immutable wrapper for a sensor data point.
  * 
  * @author Joshua Selsky
  */
