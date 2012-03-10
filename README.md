@@ -8,14 +8,9 @@ This DPU is available as a Java library and a Java EE war file.
 
 The Java library comes with an example: org.openmhealth.dpu.mobilityclassifier.example.Example. To run the example:
 
-git clone ...
-cd to the root of this project
-build the library
-
+    git clone ...
+    cd to the root of this project
     ant clean dist-jar
-
-run the example
-
     java -cp dist:lib/joda-time-2.1.jar:lib/json.org-2011-11-03.jar:lib/mobility-classifier-1.2.9.jar:build/classes org.openmhealth.dpu.mobilityclassifier.example.Example
   
 The example takes JSON mobility points stored in example.json and processes them using ClassificationService. The ClassifiedPoints are then output to System.out. 
